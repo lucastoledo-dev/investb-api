@@ -11,7 +11,7 @@ export default function Home({ isConnected }) {
 
       <main>
         <h1 className="title">
-          Welcome to <a href="https://nextjs.org">investbAPI</a>
+          Welcome to <a href="https://investb-api.vercel.app/">investbAPI</a>
         </h1>
 
         {isConnected ? (
