@@ -40,7 +40,7 @@ export default async (req, res) => {
     .then((res) => res.text())
     .then((body) => {
       const result = scrapy.extract(body, model)
-      if (!result) {
+      if (!result.codigo) {
         res.status(404);
         res.json({
           message: 'IES Não encontrada',
