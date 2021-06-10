@@ -48,13 +48,13 @@ export default async (req, res) => {
         });
           return;
       }else{
-        // result.preco = normalizeField( result.preco, "CURRENCY" )
-        // result.percentagem = normalizeField( result.percentagem, "PERCENT" )
-        // result.ultimo_rendimento = normalizeField( result.ultimo_rendimento, "CURRENCY" )
-        // result.dividendo_yield = normalizeField( result.dividendo_yield, "PERCENT" )
+        result.preco = normalizeField( result.preco, "CURRENCY" )
+        result.percentagem = normalizeField( result.percentagem, "PERCENT" )
+        result.ultimo_rendimento = normalizeField( result.ultimo_rendimento, "CURRENCY" )
+        result.dividendo_yield = normalizeField( result.dividendo_yield, "PERCENT" )
+        result.rentabilidade_no_mes = normalizeField( result.rentabilidade_no_mes, "PERCENT" )
         // //result.patrimonio_liquido = normalizeField( result.patrimonio_liquido, "CURRENCY" )
-        // result.valor_patrimonial = normalizeField( result.valor_patrimonial, "CURRENCY" )
-        // result.rentabilidade_no_mes = normalizeField( result.rentabilidade_no_mes, "PERCENT" )
+        result.valor_patrimonial = normalizeField( result.valor_patrimonial, "CURRENCY" )
         // //result.info_basica.patrimonio_inicial = normalizeField( result.info_basica.patrimonio_inicial, "CURRENCY" )
         // result.info_basica.valor_inicial_da_cota = normalizeField( result.info_basica.valor_inicial_da_cota, "CURRENCY" )
         
