@@ -48,20 +48,29 @@ export default async (req, res) => {
         });
           return;
       }else{
-        result.preco = result.preco.match(/(\d|,)+/g).pop();
-        result.percentagem = result.percentagem.replace("%","")
-        result.ultimo_rendimento = result.ultimo_rendimento.match(/(\d|,)+/g).pop();
-        result.dividendo_yield = result.dividendo_yield.replace("%","")
-        result.patrimonio_liquido = result.patrimonio_liquido.replace("R$ ","")
-        result.valor_patrimonial = result.valor_patrimonial.match(/(\d|,)+/g).pop();
-        result.rentabilidade_no_mes = result.rentabilidade_no_mes.replace("%","")
-        result.info_basica.patrimonio_inicial = result.info_basica.patrimonio_inicial.replace("R$ ","")
-        result.info_basica.valor_inicial_da_cota = result.info_basica.valor_inicial_da_cota.replace("R$ ","")
+        // result.preco = normalizeField( result.preco, "CURRENCY" )
+        // result.percentagem = normalizeField( result.percentagem, "PERCENT" )
+        // result.ultimo_rendimento = normalizeField( result.ultimo_rendimento, "CURRENCY" )
+        // result.dividendo_yield = normalizeField( result.dividendo_yield, "PERCENT" )
+        // //result.patrimonio_liquido = normalizeField( result.patrimonio_liquido, "CURRENCY" )
+        // result.valor_patrimonial = normalizeField( result.valor_patrimonial, "CURRENCY" )
+        // result.rentabilidade_no_mes = normalizeField( result.rentabilidade_no_mes, "PERCENT" )
+        // //result.info_basica.patrimonio_inicial = normalizeField( result.info_basica.patrimonio_inicial, "CURRENCY" )
+        // result.info_basica.valor_inicial_da_cota = normalizeField( result.info_basica.valor_inicial_da_cota, "CURRENCY" )
         
-
         res.json(result);
       }
   });
 };
 
-
+export function normalizeField( value, type ) { 
+  if(value!="N/A"){
+    if(type="CURRENCY"){
+      return value.match(/(\d|,)+/g).pop()
+    }else if("PERCENT"){
+      return value.percentagem.replace("%","")
+    }
+  }else{
+    return value
+  }
+}
