@@ -43,8 +43,8 @@ export default async (req, res) => {
       if (!result.codigo) {
         res.status(404);
         res.json({
-          message: 'IES Não encontrada',
-          type: 'IES_CODE_NOT_FOUND',
+          message: 'FII Não encontrada',
+          type: 'FII_CODE_NOT_FOUND',
         });
           return;
       }else{
